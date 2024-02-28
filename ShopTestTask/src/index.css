@@ -8,3 +8,8 @@
 .css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root {
   width: 50vh;
 }
+
+#description_product img {
+  width: 40%;
+  height: max-content;
+}
