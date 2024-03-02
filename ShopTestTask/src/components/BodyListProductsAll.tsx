@@ -55,6 +55,7 @@ export const BodyListProductsAll = () => {
                     }}
                     onClick={() => {
                       console.log(item)
+                      localStorage.setItem('data', JSON.stringify(item["id"]))
                       window.open('/details_product', '_self')
                     }}
                     >
@@ -64,11 +65,11 @@ export const BodyListProductsAll = () => {
                             <Box sx={{
                               height: '100%'
                             }} id="description_product">
-                              <CardMedia
-                                component="img"
-                                height="140"
-                                image={item["colors"][0]["images"][0]}
-                              />
+                                <CardMedia
+                                    component="img"
+                                    height="140"
+                                    image={item["colors"][0]["images"][0]}
+                                />
                             </Box>
                         <CardContent>
                           <Typography gutterBottom variant="h5" component="div">

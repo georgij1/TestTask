@@ -13,3 +13,12 @@
   width: 40%;
   height: max-content;
 }
+
+.css-i5q2k0 img:hover {
+  box-shadow: none;
+}
+
+.css-i5q2k0 img {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+}

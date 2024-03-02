@@ -8,12 +8,26 @@ import {
     Toolbar,
     IconButton,
     Typography,
-    Box
+    Box,
+    Badge,
+    Tooltip
 } from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
+import ShoppingBasket from '@mui/icons-material/ShoppingBasket';
 
-const pages = ['Список товаров', 'Корзина'];
+const pages = [
+  'Список товаров', 
+  <Tooltip onClick={() => window.open('/order', '_self')} title="Корзина">
+      <Badge 
+      badgeContent={localStorage.getItem('countProductSelected') 
+      ? localStorage.getItem('countProductSelected'):0
+      } color="primary"
+    >
+      <ShoppingBasket/>
+    </Badge>
+  </Tooltip>
+];
 
 export const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -25,15 +39,11 @@ export const Header = () => {
 
     const handleCloseNavMenu = (event: any) => {
         setAnchorElNav(null);
-        console.log(event.currentTarget.textContent)
+        console.log(event.currentTarget)
         if (event.currentTarget.textContent == "Список товаров") {
             window.open('/', '_self')
         }
         else if (event.currentTarget.textContent == "Корзина") {
-            window.open('/order', '_self')
-        }
-        else {
-            alert('Такой страницы нет')
         }
     };
 
@@ -118,7 +128,7 @@ export const Header = () => {
             >
               LOGO
             </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'space-between' }}>
               {pages.map((page) => (
                 <Button
                   key={page}
